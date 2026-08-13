@@ -1,0 +1,72 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 4 0 R >> >> /MediaBox [0 0 612 792] /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 835 >>
+stream
+BT
+/F1 12 Tf
+50 750 Td
+14 TL
+(RAG on Azure - Test Document) Tj
+T*
+() Tj
+T*
+(This is a small sample PDF for testing the RAG pipeline.) Tj
+T*
+() Tj
+T*
+(Azure OpenAI provides both chat completion models and text) Tj
+T*
+(embedding models through named deployments.) Tj
+T*
+() Tj
+T*
+(Azure AI Search stores document chunks along with their vector) Tj
+T*
+(embeddings, and supports hybrid keyword plus vector search.) Tj
+T*
+() Tj
+T*
+(Azure Blob Storage is used to keep the original uploaded PDF file) Tj
+T*
+(safe, separate from the search index.) Tj
+T*
+() Tj
+T*
+(The capital of France is Paris. The company Contoso was founded) Tj
+T*
+(in the year 2010 and specializes in cloud consulting services.) Tj
+T*
+() Tj
+T*
+(This document is intentionally short to minimize token usage) Tj
+T*
+(during testing on a free tier Azure subscription.) Tj
+T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1197
+%%EOF

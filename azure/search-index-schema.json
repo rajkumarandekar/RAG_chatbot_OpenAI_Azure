@@ -1,0 +1,83 @@
+{
+  "name": "<AZURE_SEARCH_INDEX_NAME>",
+  "fields": [
+    {
+      "name": "id",
+      "type": "Edm.String",
+      "key": true,
+      "filterable": true,
+      "retrievable": true
+    },
+    {
+      "name": "document_id",
+      "type": "Edm.String",
+      "filterable": true,
+      "retrievable": true,
+      "sortable": false,
+      "facetable": true
+    },
+    {
+      "name": "filename",
+      "type": "Edm.String",
+      "filterable": true,
+      "retrievable": true,
+      "searchable": false
+    },
+    {
+      "name": "page",
+      "type": "Edm.Int32",
+      "filterable": true,
+      "retrievable": true,
+      "sortable": true
+    },
+    {
+      "name": "content",
+      "type": "Edm.String",
+      "searchable": true,
+      "retrievable": true,
+      "analyzer": "en.microsoft"
+    },
+    {
+      "name": "content_vector",
+      "type": "Collection(Edm.Single)",
+      "searchable": true,
+      "retrievable": false,
+      "dimensions": 1536,
+      "vectorSearchProfile": "rag-vector-profile"
+    }
+  ],
+  "vectorSearch": {
+    "algorithms": [
+      {
+        "name": "rag-hnsw",
+        "kind": "hnsw",
+        "hnswParameters": {
+          "m": 4,
+          "efConstruction": 400,
+          "efSearch": 500,
+          "metric": "cosine"
+        }
+      }
+    ],
+    "profiles": [
+      {
+        "name": "rag-vector-profile",
+        "algorithm": "rag-hnsw"
+      }
+    ]
+  },
+  "semantic": {
+    "configurations": [
+      {
+        "name": "rag-semantic-config",
+        "prioritizedFields": {
+          "titleField": null,
+          "prioritizedContentFields": [
+            { "fieldName": "content" }
+          ],
+          "prioritizedKeywordsFields": []
+        }
+      }
+    ]
+  }
+}
