@@ -38,3 +38,13 @@ def upload_pdf(file_bytes: bytes, original_filename: str) -> tuple[str, str]:
     )
 
     return document_id, blob_client.url
+
+
+def delete_document_blobs(document_id: str) -> int:
+    """Deletes all blobs under the document_id/ prefix. Returns count deleted."""
+    container_client = _get_container_client()
+    deleted = 0
+    for blob in container_client.list_blobs(name_starts_with=f"{document_id}/"):
+        container_client.delete_blob(blob.name)
+        deleted += 1
+    return deleted

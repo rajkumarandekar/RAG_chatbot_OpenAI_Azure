@@ -92,6 +92,23 @@ def list_documents() -> List[dict]:
     return list(summaries.values())
 
 
+def delete_document(document_id: str) -> int:
+    """Deletes all indexed chunks for a document_id. Returns count deleted."""
+    uuid.UUID(document_id)  # validate before use in filter
+    results = list(
+        _get_client().search(
+            search_text="*",
+            filter=f"document_id eq '{document_id}'",
+            select=["id"],
+            top=1000,
+        )
+    )
+    if not results:
+        return 0
+    result = _get_client().delete_documents(documents=[{"id": r["id"]} for r in results])
+    return sum(1 for r in result if r.succeeded)
+
+
 def hybrid_search(
     query_text: str,
     query_vector: List[float],

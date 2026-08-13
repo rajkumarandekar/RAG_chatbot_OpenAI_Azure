@@ -41,6 +41,17 @@ export async function listDocuments() {
   return response.json();
 }
 
+export async function deleteDocument(documentId) {
+  const response = await fetch(`${API_BASE_URL}/api/documents/${documentId}`, {
+    method: "DELETE",
+  });
+  if (!response.ok) {
+    const detail = await safeErrorDetail(response);
+    throw new Error(detail || `Delete failed (${response.status})`);
+  }
+  return response.json();
+}
+
 async function safeErrorDetail(response) {
   try {
     const data = await response.json();

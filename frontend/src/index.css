@@ -46,17 +46,48 @@ body {
 
 .document-sidebar li {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   padding: 0.5rem 0.6rem;
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.85rem;
   color: #374151;
+}
+
+.document-sidebar .doc-name {
+  flex: 1;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.delete-doc-button {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  opacity: 0.5;
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+}
+
+.delete-doc-button:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.document-sidebar li.active .delete-doc-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.delete-doc-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .document-sidebar li:hover {
