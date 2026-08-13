@@ -16,6 +16,9 @@ frontend/dist/
 # Logs
 *.log
 
+# Claude Code session state
+.claude/
+
 # OS
 .DS_Store
 Thumbs.db
